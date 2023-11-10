@@ -1,0 +1,45 @@
+﻿@model Student_Task1.Models.Student
+
+@using (Html.BeginForm("CreateStudent", "Student", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.FirstName)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.LastName)
+            </td>
+            <td>
+                
+                @Html.TextBoxFor(m => m.LastName)
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.BranchName)
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.BranchId,Model.BranchList,"Select a Branch",new{@class="form-control"})
+                @Html.ValidationMessageFor(model => model.BranchName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.YearName)
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.YearId,Model.YearList,"Select a Year",new{@class="form-control"})
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Save" />
+}
